@@ -1,0 +1,13 @@
+numpy<2
+scipy
+matplotlib
+opencv-python
+Pillow
+torch
+torchvision
+absl-py
+tqdm
+scikit-image
+colour-demosaicing
+pyiqa
+torchmetrics
