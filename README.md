@@ -24,7 +24,7 @@ The evaluated devices are two Quad-Bayer hybrid sensors:
 | GEN2 | One white EVS pixel per Quad-Bayer block | 816 × 612 |
 | Eiger | Four color-filtered EVS pixels per Quad-Bayer block | 1632 × 1224 |
 
-Both devices use a 3264 × 2448 APS. The release contains code only; captured calibration data, fitted `meta/` artifacts, and downstream-task datasets are not distributed here.
+Both devices use a 3264 × 2448 APS. 
 
 ## Repository layout
 
