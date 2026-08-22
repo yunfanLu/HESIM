@@ -65,16 +65,16 @@ sRGB → noisy APS RAW            RAW → sRGB reference ISP
 frames → calibrated EVS events
 ```
 
-| Area | Main modules | Responsibility | Paper connection |
+| Area | Main modules | Responsibility |  
 | --- | --- | --- | --- |
-| Shared I/O | `io.py`, `meta.py`, `visualization.py` | Read APS/EVS payloads, interpret sensor layouts, provide CFA/gamma helpers and plots. | Shared support for calibration and simulation. |
-| APS calibration | `calibration/aps_black_level_calibration.py`, `aps_noise_calibration_with_multiple_groups.py`, `aps_noise_calibration_with_multiple_groups_fitting.py`, `aps_calibrator.py` | Estimate dark-current/fixed-pattern components and the six-term, CFA-dependent APS variance model `β_a`. | APS calibration in the paper. |
-| EVS calibration | `calibration/evs_shot_noise_preprocessing.py`, `evs_shot_noise_calibration.py`, `evs_dark_noise_calibration.py`, `evs_params_fitting.py`, `evs_calibrator.py` | Compute event statistics, estimate dark-event behavior, and fit the inverse-Q event model `β_e`. | EVS calibration in the paper. |
-| Open ISP | `hisp/main_hisp.py`, `black_level_currection.py`, `white_balance.py`, `quad_bayer_demosaic_by_trans_quad2bayer.py`, color-correction modules | Provide a NumPy-oriented reference path from calibrated RAW data to sRGB. The historical filename `black_level_currection.py` is retained for import compatibility. | Companion RAW-to-sRGB ISP described with the simulator. |
-| APS simulation | `simulator/sRGB_to_RAW.py` | Invert sRGB processing, mosaic to CFA/Quad-Bayer RAW, add calibrated fixed/dynamic noise, then quantize. | APS branch of H-ESIM. |
-| EVS simulation | `simulator/evs_noise_generate.py` | Apply calibrated thresholds and noise parameters to the log-difference event-trigger model. | EVS branch of H-ESIM and the Q-function model. |
-| Joint orchestration | `simulator/application.py`, `hesim_for_hkust_3200fps_video_dataset.py`, `rolling_shutter_blur_simulation.py` | Coordinate APS and EVS generation over high-frame-rate videos and prepare rolling-shutter data. | Joint H-ESIM generation. |
-| Evaluation | `nr_iqa_video_evaluator.py` | Compute no-reference metrics used for downstream visual-quality evaluation. | Deblurring evaluation in the paper. |
+| Shared I/O | `io.py`, `meta.py`, `visualization.py` | Read APS/EVS payloads, interpret sensor layouts, provide CFA/gamma helpers and plots. | 
+| APS calibration | `calibration/aps_black_level_calibration.py`, `aps_noise_calibration_with_multiple_groups.py`, `aps_noise_calibration_with_multiple_groups_fitting.py`, `aps_calibrator.py` | Estimate dark-current/fixed-pattern components and the six-term, CFA-dependent APS variance model `β_a`. |  
+| EVS calibration | `calibration/evs_shot_noise_preprocessing.py`, `evs_shot_noise_calibration.py`, `evs_dark_noise_calibration.py`, `evs_params_fitting.py`, `evs_calibrator.py` | Compute event statistics, estimate dark-event behavior, and fit the inverse-Q event model `β_e`. | 
+| Open ISP | `hisp/main_hisp.py`, `black_level_currection.py`, `white_balance.py`, `quad_bayer_demosaic_by_trans_quad2bayer.py`, color-correction modules | Provide a NumPy-oriented reference path from calibrated RAW data to sRGB. The historical filename `black_level_currection.py` is retained for import compatibility. | 
+| APS simulation | `simulator/sRGB_to_RAW.py` | Invert sRGB processing, mosaic to CFA/Quad-Bayer RAW, add calibrated fixed/dynamic noise, then quantize. |
+| EVS simulation | `simulator/evs_noise_generate.py` | Apply calibrated thresholds and noise parameters to the log-difference event-trigger model. | 
+| Joint orchestration | `simulator/application.py`, `hesim_for_hkust_3200fps_video_dataset.py`, `rolling_shutter_blur_simulation.py` | Coordinate APS and EVS generation over high-frame-rate videos and prepare rolling-shutter data. | 
+| Evaluation | `nr_iqa_video_evaluator.py` | Compute no-reference metrics used for downstream visual-quality evaluation. |
 
 For a maintainer-oriented file-level map and dependency direction, see [`hesim/ARCHITECTURE.md`](hesim/ARCHITECTURE.md). Package-level docstrings in `hesim`, `hesim.calibration`, `hesim.hisp`, and `hesim.simulator` state each package's boundary.
 
