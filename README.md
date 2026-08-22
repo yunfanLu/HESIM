@@ -66,7 +66,7 @@ frames → calibrated EVS events
 ```
 
 | Area | Main modules | Responsibility |  
-| --- | --- | --- | --- |
+| --- | --- | --- |  
 | Shared I/O | `io.py`, `meta.py`, `visualization.py` | Read APS/EVS payloads, interpret sensor layouts, provide CFA/gamma helpers and plots. | 
 | APS calibration | `calibration/aps_black_level_calibration.py`, `aps_noise_calibration_with_multiple_groups.py`, `aps_noise_calibration_with_multiple_groups_fitting.py`, `aps_calibrator.py` | Estimate dark-current/fixed-pattern components and the six-term, CFA-dependent APS variance model `β_a`. |  
 | EVS calibration | `calibration/evs_shot_noise_preprocessing.py`, `evs_shot_noise_calibration.py`, `evs_dark_noise_calibration.py`, `evs_params_fitting.py`, `evs_calibrator.py` | Compute event statistics, estimate dark-event behavior, and fit the inverse-Q event model `β_e`. | 
@@ -130,22 +130,6 @@ The output NPZ fields are named explicitly: APS files contain `raw`; EVS files c
 ### 3. Process RAW with the open ISP
 
 The `hesim.hisp` modules expose black-level correction, white balance, Quad-Bayer conversion/demosaicing, and color correction. They are designed as a reference implementation and expect compatible calibration artifacts when black-level correction is enabled.
-
-## Verification
-
-The release includes an import-level smoke test that never invokes calibration, simulation, or dataset processing:
-
-```bash
-bash run_all_test.sh
-```
-
-You can also validate Python syntax without executing data-dependent code:
-
-```bash
-python -m py_compile $(find hesim -name '*.py')
-```
-
-The smoke test checks import safety only. It does not establish numerical equivalence to the paper because the private captures and fitted artifacts are not part of this release. To reproduce reported results, obtain the exact captures, calibration artifacts, and downstream datasets described by the paper, then record the commit hash and hardware/CUDA versions used for the run.
 
 ## Limitations and reproducibility
 
