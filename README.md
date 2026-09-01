@@ -133,7 +133,7 @@ The `hesim.hisp` modules expose black-level correction, white balance, Quad-Baye
 
 ## Limitations and reproducibility
 
-The model is statistically calibrated for the sensors and capture regimes studied in the paper. As discussed in the paper, very low illumination, extreme temperatures, and bandwidth constraints are not explicitly modeled and may depart from the Gaussian approximation. Reproducing the data-dependent calibration or downstream experiments requires the corresponding sensor captures and evaluation datasets.
+The model is statistically calibrated for the sensors and capture regimes studied in the paper. As discussed in the paper, very low illumination, extreme temperatures, and bandwidth constraints are not explicitly modeled and may depart from the Gaussian approximation.
 
 ## Citation
 
