@@ -3,11 +3,12 @@
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](#installation)
 [![License](https://img.shields.io/badge/License-Apache--2.0-green.svg)](LICENSE)
 
+Project page: <https://yunfanlu.github.io/HESIM>
+
 Official implementation accompanying **“Hybrid Event–Frame Sensors: Modeling, Calibration, and Simulation”** (ECCV 2026).
 
 Hybrid event–frame sensors integrate an Active Pixel Sensor (APS) and an Event Vision Sensor (EVS) on one chip. H-ESIM provides the code underpinning the paper's unified statistical noise model, APS/EVS calibration pipeline, and simulator for jointly producing noisy RAW frames and event data.
 
-Project page: <https://yunfanlu.github.io/HESIM>
 
 ## Paper and scope
 
