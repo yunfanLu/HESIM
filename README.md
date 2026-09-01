@@ -83,7 +83,7 @@ For a maintainer-oriented file-level map and dependency direction, see [`hesim/A
 Python 3.9 or newer is required. A virtual environment is recommended:
 
 ```bash
-git clone <YOUR-REPOSITORY-URL>
+git clone git@github.com:yunfanLu/HESIM.git
 cd H-ESIM-Release
 python -m venv .venv
 source .venv/bin/activate
