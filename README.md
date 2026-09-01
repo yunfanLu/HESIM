@@ -84,7 +84,7 @@ Python 3.9 or newer is required. A virtual environment is recommended:
 
 ```bash
 git clone git@github.com:yunfanLu/HESIM.git
-cd H-ESIM-Release
+cd HESIM
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
